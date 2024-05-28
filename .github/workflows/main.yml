@@ -20,17 +20,12 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-
-      - name: Get current date
-        id: date
-        run: |
-          echo "{DATE}={$(date +'%Y-%m-%d')}" >> $GITHUB_STATE
           
       - name: Build and push
         uses: docker/build-push-action@v5
         with:
           push: true
           tags: |
-            thaisperlho/nera-app:${{ env.DATE }}
+            thaisperlho/nera-app:$(date +'%Y-%m-%d')
             thaisperlho/nera-app:latest
         
