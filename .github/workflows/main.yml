@@ -29,6 +29,6 @@ jobs:
         with:
           push: true
           tags: |
-            thaisperlho/nera-app:$DATE
+            thaisperlho/nera-app:${{ env.DATE }}
             thaisperlho/nera-app:latest
         
